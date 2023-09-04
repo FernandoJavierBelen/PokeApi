@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "04DA9F53-0D62-4DDD-992B-00963DF08423"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F8E9A16A-7428-4A01-9960-E33AD6589741"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokeApi/PokemonCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "pokemon"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "F8E9A16A-7428-4A01-9960-E33AD6589741 - d4a3b45422166fe6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokeApi.PokemonCell.pokemon.didset : Swift.Array&lt;PokeApi.Results&gt;"
+                  moduleName = "PokeApi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fernandobelen/Developer/PokeApi/PokeApi/PokemonCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "F8E9A16A-7428-4A01-9960-E33AD6589741 - fbf065bba3ad7837"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokeApi.PokemonCell.pokemon.didset : Swift.Array&lt;PokeApi.PokemonData&gt;"
+                  moduleName = "PokeApi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fernandobelen/Developer/PokeApi/PokeApi/PokemonCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "F8E9A16A-7428-4A01-9960-E33AD6589741 - 7cbf86a423949a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokeApi.PokemonCell.pokemon.didset : Swift.Optional&lt;PokeApi.PokemonData&gt;"
+                  moduleName = "PokeApi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fernandobelen/Developer/PokeApi/PokeApi/PokemonCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "F8E9A16A-7428-4A01-9960-E33AD6589741 - 792476c5918b058c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokeApi.PokemonCell.pokemon.didset : Swift.Optional&lt;PokeApi.Results&gt;"
+                  moduleName = "PokeApi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fernandobelen/Developer/PokeApi/PokeApi/PokemonCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

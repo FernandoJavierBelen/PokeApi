@@ -8,16 +8,42 @@
 import UIKit
 
 class PokemonCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    var pokemon: Results? {
+        didSet {
+            labelName.text = pokemon?.name
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private lazy var labelName: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupView()
     }
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupView(){
+        addViewHerarchy()
+        addConstraints()
+    }
+    
+    func addViewHerarchy(){
+        addSubview(labelName)
+    }
+    
+    func addConstraints(){
+        NSLayoutConstraint.activate([
+            labelName.topAnchor.constraint(equalTo: topAnchor),
+            labelName.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
+            labelName.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
 }
