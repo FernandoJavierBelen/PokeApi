@@ -60,17 +60,49 @@
 		922649652AA2B67000009A5D /* PokeApi */ = {
 			isa = PBXGroup;
 			children = (
+				92AE2B0C2AA626C300F50C3D /* ViewModel */,
+				92AE2B0D2AA626F500F50C3D /* Views */,
+				92AE2B0B2AA626B100F50C3D /* Controller */,
 				922649662AA2B67000009A5D /* AppDelegate.swift */,
-				9226497A2AA2B83B00009A5D /* PokemonViewController.swift */,
-				9226497C2AA2BC0200009A5D /* PokemonModel.swift */,
 				922649682AA2B67000009A5D /* SceneDelegate.swift */,
 				9226496F2AA2B67100009A5D /* Assets.xcassets */,
 				922649712AA2B67100009A5D /* LaunchScreen.storyboard */,
 				922649742AA2B67100009A5D /* Info.plist */,
-				9226497E2AA2BEC000009A5D /* PokemonHttp.swift */,
-				922649802AA2CC3E00009A5D /* PokemonCell.swift */,
 			);
 			path = PokeApi;
+			sourceTree = "<group>";
+		};
+		92AE2B0A2AA6269800F50C3D /* HTTPClient */ = {
+			isa = PBXGroup;
+			children = (
+				9226497E2AA2BEC000009A5D /* PokemonHttp.swift */,
+			);
+			path = HTTPClient;
+			sourceTree = "<group>";
+		};
+		92AE2B0B2AA626B100F50C3D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9226497A2AA2B83B00009A5D /* PokemonViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		92AE2B0C2AA626C300F50C3D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9226497C2AA2BC0200009A5D /* PokemonModel.swift */,
+				92AE2B0A2AA6269800F50C3D /* HTTPClient */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		92AE2B0D2AA626F500F50C3D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				922649802AA2CC3E00009A5D /* PokemonCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
