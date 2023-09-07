@@ -9,12 +9,6 @@ import UIKit
 
 class PokemonCell: UITableViewCell {
     
-    var pokemon: Results? {
-        didSet {
-            labelName.text = pokemon?.name
-        }
-    }
-    
     private lazy var labelName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -30,20 +24,24 @@ class PokemonCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupView(){
+    func setupView() {
         addViewHerarchy()
         addConstraints()
     }
     
-    func addViewHerarchy(){
+    func addViewHerarchy() {
         addSubview(labelName)
     }
     
-    func addConstraints(){
+    func addConstraints() {
         NSLayoutConstraint.activate([
             labelName.topAnchor.constraint(equalTo: topAnchor),
             labelName.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
             labelName.heightAnchor.constraint(equalToConstant: 30)
         ])
+    }
+    
+    func configureCell(with pokemon: PokemonModel) {
+        labelName.text = pokemon.name
     }
 }

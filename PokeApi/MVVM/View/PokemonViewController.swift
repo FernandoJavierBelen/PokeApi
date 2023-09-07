@@ -9,8 +9,8 @@ import UIKit
 
 class PokemonViewController: UIViewController {
     
-    var pokemon = [Results]()
-    var httpClient = PokemonHttp()
+    private var viewModel = PokemonViewModel()
+    private var dataSource: PokemonDataSource?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -21,27 +21,32 @@ class PokemonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setupView()
-        httpClient.getPokemons { data in
-            self.pokemon = data
+        viewModel.getPokemons { [weak self] in
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self?.tableView.reloadData()
             }
         }
     }
     
     func setupView() {
-        addViewHerarchy()
+        addViewHierarchy()
         addConstraints()
-        addProperties()
+        additionalConf()
+        setupTableView()
     }
     
-    func addViewHerarchy() {
+    func additionalConf() {
+        view.backgroundColor = .white
+        title = String.pokemonTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func addViewHierarchy() {
         view.addSubview(tableView)
     }
     
-    func addConstraints(){
+    func addConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -50,25 +55,9 @@ class PokemonViewController: UIViewController {
         ])
     }
     
-    func addProperties() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(PokemonCell.self, forCellReuseIdentifier: "PokemonCell")
-    }
-}
-
-extension PokemonViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
-        cell.pokemon = pokemon[indexPath.row]
-        return cell
-    }
-}
-
-extension PokemonViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pokemon.count
+    func setupTableView() {
+        dataSource = PokemonDataSource(viewModel: viewModel)
+        tableView.dataSource = dataSource
+        tableView.register(PokemonCell.self, forCellReuseIdentifier: String.pokemonCellIdentifier)
     }
 }

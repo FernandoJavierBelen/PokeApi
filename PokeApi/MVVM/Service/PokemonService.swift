@@ -1,5 +1,5 @@
 //
-//  PokemonHttp.swift
+//  PokemonService.swift
 //  PokeApi
 //
 //  Created by Fernando Belen on 01/09/2023.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class PokemonHttp {
+class PokemonService {
     
-    func getPokemons(completion: @escaping ([Results]) -> Void) {
+    func getPokemons(completion: @escaping ([PokemonModel]) -> Void) {
         guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon") else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -24,8 +24,8 @@ class PokemonHttp {
             
             do {
                 let decodedData = try JSONDecoder().decode(PokemonData.self, from: data)
-                let pokemonArray = decodedData.pokemons
-                completion(pokemonArray) // Llama a la clausura de finalización con los datos decodificados
+                let pokemonsData = decodedData.results
+                completion(pokemonsData)
             } catch {
                 print("Error al decodificar los datos: \(error.localizedDescription)")
             }
