@@ -41,7 +41,7 @@ class PokemonCell: UITableViewCell {
         ])
     }
     
-    func configureCell(with pokemon: PokemonModel) {
-        labelName.text = pokemon.name
+    func configureCell(with name: String?) {
+        labelName.text = name
     }
 }

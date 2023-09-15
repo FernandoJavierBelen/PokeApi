@@ -9,8 +9,7 @@ import UIKit
 
 class PokemonViewController: UIViewController {
     
-    private var viewModel = PokemonViewModel()
-    private var dataSource: PokemonDataSource?
+    public var viewModel = PokemonViewModel()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -56,8 +55,7 @@ class PokemonViewController: UIViewController {
     }
     
     func setupTableView() {
-        dataSource = PokemonDataSource(viewModel: viewModel)
-        tableView.dataSource = dataSource
+        tableView.dataSource = self
         tableView.register(PokemonCell.self, forCellReuseIdentifier: String.pokemonCellIdentifier)
     }
 }
