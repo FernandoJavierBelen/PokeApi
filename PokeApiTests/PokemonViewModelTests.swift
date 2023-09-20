@@ -5,34 +5,41 @@
 //  Created by Fernando Belen on 14/09/2023.
 //
 
-import XCTest
+import Quick
+import Nimble
 @testable import PokeApi
 
-class PokemonViewModelTests: XCTestCase {
-    
-    var viewModel: PokemonViewModel?
-
-    override func setUp() {
-        super.setUp()
-        viewModel = PokemonViewModel()
-    }
-
-    override func tearDown() {
-        viewModel = nil
-        super.tearDown()
-    }
-
-    func testNumberOfPokemon() {
-        viewModel?.getPokemons {
-            XCTAssertEqual(self.viewModel?.numberOfPokemon(), 2)
-         
+class PokemonViewModelSpec: QuickSpec {
+    override func spec() {
+        var viewModel: PokemonViewModel?
+        
+        beforeEach {
+            viewModel = PokemonViewModel()
         }
-    }
-
-    func testPokemonAtIndex() {
-        viewModel?.getPokemons {
-            let pokemon = self.viewModel?.pokemon(at: 0)
-            XCTAssertEqual(pokemon?.name, "Bulbasaur")
+        
+        afterEach {
+            viewModel = nil
+        }
+        
+        describe("PokemonViewModel") {
+            it("should have 2 pokemons") {
+                waitUntil { done in
+                    viewModel?.getPokemons {
+                        expect(viewModel?.numberOfPokemon()) == 20
+                        done()
+                    }
+                }
+            }
+            
+            it("should return Bulbasaur as the first pokemon") {
+                waitUntil { done in
+                    viewModel?.getPokemons {
+                        let pokemon = viewModel?.pokemon(at: 0)
+                        expect(pokemon?.name) == "bulbasaur"
+                        done()
+                    }
+                }
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class PokemonCell: UITableViewCell {
     
-    private lazy var labelName: UILabel = {
+    lazy var labelName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
