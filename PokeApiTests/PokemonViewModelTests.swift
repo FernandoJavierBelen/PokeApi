@@ -22,7 +22,16 @@ class PokemonViewModelSpec: QuickSpec {
         }
         
         describe("PokemonViewModel") {
-            it("should have 2 pokemons") {
+            it("should fetch pokemons from the service") {
+                waitUntil { done in
+                    viewModel?.getPokemons {
+                        expect(viewModel?.numberOfPokemon()) > 0
+                        done()
+                    }
+                }
+            }
+            
+            it("should have 20 pokemons") {
                 waitUntil { done in
                     viewModel?.getPokemons {
                         expect(viewModel?.numberOfPokemon()) == 20
