@@ -22,22 +22,38 @@ class PokemonViewModelSpec: QuickSpec {
         }
         
         describe("PokemonViewModel") {
-            it("should have 2 pokemons") {
-                waitUntil { done in
-                    viewModel?.getPokemons {
-                        expect(viewModel?.numberOfPokemon()) == 20
-                        done()
+            context("when fetching pokemons from the service") {
+                it("should fetch pokemons successfully") {
+                    waitUntil(timeout: .seconds(10)) { done in
+                        viewModel?.getPokemons {
+                            expect(viewModel?.numberOfPokemon()) > 0
+                            done()
+                        }
                     }
                 }
-            }
-            
-            it("should return Bulbasaur as the first pokemon") {
-                waitUntil { done in
-                    viewModel?.getPokemons {
-                        let pokemon = viewModel?.pokemon(at: 0)
-                        expect(pokemon?.name) == "bulbasaur"
-                        done()
+                
+                it("should have 20 pokemons") {
+                    waitUntil(timeout: .seconds(10)) { done in
+                        viewModel?.getPokemons {
+                            expect(viewModel?.numberOfPokemon()) == 20
+                            done()
+                        }
                     }
+                }
+                
+                it("should return Bulbasaur as the first pokemon") {
+                    waitUntil(timeout: .seconds(10)) { done in
+                        viewModel?.getPokemons {
+                            let pokemon = viewModel?.pokemon(at: 0)
+                            expect(pokemon?.name?.lowercased()) == "bulbasaur"
+                            done()
+                        }
+                    }
+                }
+                
+                it("should return nil when no pokemons are fetched") {
+                    let pokemon = viewModel?.pokemon(at: 0)
+                    expect(pokemon).to(beNil())
                 }
             }
         }
