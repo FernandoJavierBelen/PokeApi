@@ -36,9 +36,7 @@ class PokemonViewController: UIViewController {
     }
     
     func additionalConf() {
-        view.backgroundColor = .white
-        title = String.pokemonTitle
-        navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = String.pokemonTitle
     }
     
     func addViewHierarchy() {

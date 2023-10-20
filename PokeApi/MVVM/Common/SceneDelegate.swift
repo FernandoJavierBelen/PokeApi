@@ -14,31 +14,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let viewController = PokemonViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let coordinator = AppCoordinator()
+        coordinator.start()
+        
         self.window = UIWindow(windowScene: windowScene)
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = coordinator.navigationController
         self.window?.makeKeyAndVisible()
     }
 
-    func sceneDidDisconnect(_ scene: UIScene) {
+    func sceneDidDisconnect(_ scene: UIScene) { }
 
-    }
+    func sceneDidBecomeActive(_ scene: UIScene) { }
 
-    func sceneDidBecomeActive(_ scene: UIScene) {
+    func sceneWillResignActive(_ scene: UIScene) { }
 
-    }
+    func sceneWillEnterForeground(_ scene: UIScene) { }
 
-    func sceneWillResignActive(_ scene: UIScene) {
-
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-
-    }
+    func sceneDidEnterBackground(_ scene: UIScene) { }
 }
 
